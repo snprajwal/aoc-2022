@@ -1,11 +1,7 @@
 pub fn solve(input: String) -> (String, String) {
     let mut sums = input
         .split("\n\n")
-        .map(|x| {
-            x.split("\n")
-                .flat_map(|v| v.parse::<usize>())
-                .sum::<usize>()
-        })
+        .map(|x| x.lines().flat_map(|v| v.parse::<usize>()).sum::<usize>())
         .collect::<Vec<usize>>();
     sums.sort_by(|x, y| y.cmp(x));
 
